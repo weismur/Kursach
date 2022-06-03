@@ -1,0 +1,52 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:key="title_one"
+        app:title="Настройки фона">
+
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/entries"
+            android:entryValues="@array/entry_values"
+            android:key="list"
+            android:summary="Устанавливает тему приложения"
+            android:title="Цвет темы"
+             />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="title_two"
+        app:title="Настройки шрифта">
+        <EditTextPreference
+            android:dialogTitle="Введите размер шрифта (от 10 до 32)"
+            android:key="size"
+            android:summary="Устанавливает новый размер шрифта"
+
+            android:title="Размер шрифта"
+            app:defaultValue="16" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/fonts"
+            android:entryValues="@array/font_values"
+            android:key="fonts"
+            android:summary="Выбор шрифта для текста"
+            android:title="Шрифт" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/align"
+            android:entryValues="@array/align_values"
+            android:key="align"
+            android:summary="Задает выравнивание текста"
+            android:title="Выравнивание" />
+    </PreferenceCategory>
+
+
+
+
+
+</PreferenceScreen>

@@ -1,0 +1,52 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+
+    <string-array name="entries">
+        <item>Бежевый</item>
+        <item>Белый</item>
+        <item>Тёмно-синий</item>
+        <item>Чёрный</item>
+    </string-array>
+
+    <string-array name="entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="fonts">
+        <item>Roboto</item>
+        <item>Russo One</item>
+        <item>Comforta</item>
+        <item>Tinos</item>
+    </string-array>
+
+    <string-array name="font_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="align">
+        <item>По центру</item>
+        <item>По левому краю</item>
+        <item>По правому краю</item>
+    </string-array>
+
+    <string-array name="align_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>
