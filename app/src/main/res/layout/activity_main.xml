@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@color/theme1_background">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -59,7 +59,9 @@
             android:longClickable="false"
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
+            android:textColor="@color/theme1_textColor"
             android:textIsSelectable="true"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
