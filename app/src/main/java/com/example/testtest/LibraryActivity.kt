@@ -1,28 +1,28 @@
 package com.example.testtest
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.LinearLayout
+import android.view.inputmethod.EditorInfo
+import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.example.project_test.ui.AppDatabase
 import com.example.project_test.ui.Entity
 import com.example.project_test.ui.TestData
 import com.example.simplereader.ui.adapter.BookAdapter.BookAdapter
-
 import kotlinx.android.synthetic.main.activity_library.*
-import kotlinx.android.synthetic.main.fragment_library.*
-import kotlinx.android.synthetic.main.fragment_library.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class LibraryActivity : AppCompatActivity(), OnBookClickListener  {
 
+class LibraryActivity : AppCompatActivity(), OnBookClickListener  {
+    val contex = this
+    lateinit var adapter: BookAdapter
     val db by lazy {
         Room.databaseBuilder(
             this,
@@ -36,8 +36,6 @@ class LibraryActivity : AppCompatActivity(), OnBookClickListener  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_library)
 
-        //supportFragmentManager.beginTransaction().replace(R.id.container, LibraryFragment()).commit()
-
         db.resultsDao().get_author().observe(this, {
             if (it == null) {
                 GlobalScope.launch {
@@ -49,17 +47,13 @@ class LibraryActivity : AppCompatActivity(), OnBookClickListener  {
             }
         })
 
-        //container.recycler.layoutManager = LinearLayoutManager(this)
         recycler.layoutManager = LinearLayoutManager(this)
 
         db.resultsDao().getAll("RESULT DESC").observe(this,
-            { results -> recycler.adapter = BookAdapter(results,this) }
+            { book_list = it
+                adapter = BookAdapter(book_list, contex)
+                recycler.adapter = adapter}
         )
-
-        db.resultsDao().getAll("RESULT DESC").observe(this,
-            { book_list = it }
-        )
-
 
     }
 
@@ -81,24 +75,44 @@ class LibraryActivity : AppCompatActivity(), OnBookClickListener  {
                 startActivity(intent)
                 return true
             }
+            R.id.book_check -> {
+                val intent = Intent(this, bookCheckActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.action_list -> {
+                val intent = Intent(this, Random::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.action_search -> {
+                val searchView: SearchView = item.getActionView() as SearchView
+                searchView.imeOptions = EditorInfo.IME_ACTION_DONE
+
+                searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String): Boolean {
+                        return false
+                    }
+
+                    override fun onQueryTextChange(newText: String): Boolean {
+                        //adapter.getFilter().filter(newText)
+                        db.resultsDao().getBook("%"+ "$newText" +"%").observe(contex,
+                            {
+                                adapter.getFilter(it)
+                                book_list = it
+                            })
+                        return false
+                    }
+                })
+            }
         }
+
         return super.onOptionsItemSelected(item)
-    }
-
-    fun Go_to_Home(view: View) {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-
-    fun Go_to_Library(view: View) {
-        Toast.makeText(this, "Вы уже на странице библиотеки", Toast.LENGTH_SHORT).show()
     }
 
     override fun OnBookItemClicked(position: Int) {
         super.OnBookItemClicked(position)
-
         var text = book_list[position].bpath
-        Toast.makeText(this, "Book " + text , Toast.LENGTH_SHORT).show()
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("id", text)
         startActivity(intent)

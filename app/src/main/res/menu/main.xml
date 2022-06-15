@@ -2,6 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_search"
+        android:icon="?android:attr/actionModeWebSearchDrawable"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView"
+         />
+    <item
+        android:id="@+id/book_check"
+        android:title="Чек-лист книг" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="Настройки"
@@ -10,6 +20,11 @@
         android:id="@+id/action_developers"
         android:orderInCategory="100"
         android:title="О программе"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_list"
+        android:orderInCategory="100"
+        android:title="Подборка книг"
         app:showAsAction="never" />
 
 </menu>

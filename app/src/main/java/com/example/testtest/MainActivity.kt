@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.media.MediaPlayer.OnCompletionListener
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
@@ -23,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var mTTS:TextToSpeech
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,11 +33,9 @@ class MainActivity : AppCompatActivity() {
         var FilePath = intent.getStringExtra("id")
         val textView = findViewById<TextView>(R.id.Place_for_book)
 
-        Toast.makeText(this, ""+FilePath, Toast.LENGTH_SHORT).show()
-
         val sampleText: String = applicationContext.assets.open(FilePath+".txt").bufferedReader().use {
-                    it.readText()
-                }
+            it.readText()
+        }
         textView.text = sampleText
 
         add_preferences()
@@ -50,56 +48,46 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        var speakBtn = findViewById<ImageButton>(R.id.startButton)
-        var stopBtn = findViewById<ImageButton>(R.id.stopButton)
+        var speakBtn = findViewById<Button>(R.id.startButton)
+        var stopBtn = findViewById<Button>(R.id.stopButton)
         var textEt = findViewById<TextView>(R.id.Place_for_book)
 
-
         speakBtn.setOnClickListener {
-
             val toSpeak = textEt.text.toString()
-            if (toSpeak == ""){
-                Toast.makeText(this, "Enter text", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                Toast.makeText(this, toSpeak, Toast.LENGTH_SHORT).show()
-                mTTS.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null)
+            val startEnd = toSpeak[0].toString() + toSpeak[0].toString()
+            val toSpeakqeue = toSpeak.split(startEnd).toMutableList()
+            for (i in toSpeakqeue){
+                if (i == ""){
+                }
+                else{
+                    mTTS.speak(i, TextToSpeech.QUEUE_ADD, null)
+                }
             }
         }
-
 
         stopBtn.setOnClickListener {
             if (mTTS.isSpeaking){
-                mTTS.stop()
-            }
-            else{
-                Toast.makeText(this, "Not speaking", Toast.LENGTH_SHORT).show()
-            }
+                mTTS.stop()}
+            else{ }
         }
-
-//        val mPlayer = MediaPlayer.create(this, R.raw.helena)
-//        mPlayer.setOnCompletionListener(OnCompletionListener { stopPlay() })
-
-
-
     }
-
-
-
-
-
-
 
     override fun onResume() {
         super.onResume()
         add_preferences()
-
     }
 
+    override fun onPause() {
+        if (mTTS.isSpeaking){
+            mTTS.stop()
+        }
+        super.onPause()
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return true
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -115,10 +103,19 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 return true
             }
+            R.id.book_check -> {
+                val intent = Intent(this, bookCheckActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.action_list -> {
+                val intent = Intent(this, Random::class.java)
+                startActivity(intent)
+                return true
+            }
         }
         return super.onOptionsItemSelected(item)
     }
-
 
     override fun onSupportNavigateUp(): Boolean {
         finish()
@@ -132,22 +129,42 @@ class MainActivity : AppCompatActivity() {
         val font = prefs!!.getString("fonts","")
         val align = prefs!!.getString("align","")
         val textView = findViewById<TextView>(R.id.Place_for_book)
+        val startbutton = findViewById<Button>(R.id.startButton)
+        val stopbutton = findViewById<Button>(R.id.stopButton)
+
 
         if (color == "1") {
             container.setBackgroundColor(resources.getColor(R.color.theme1_background))
             textView.setTextColor(resources.getColor(R.color.theme1_textColor))
+            startbutton.setBackgroundColor(resources.getColor(R.color.theme1_textColor))
+            startbutton.setTextColor(resources.getColor(R.color.theme1_background))
+            stopbutton.setBackgroundColor(resources.getColor(R.color.theme1_textColor))
+            stopbutton.setTextColor(resources.getColor(R.color.theme1_background))
+
         }
         if (color == "2") {
             container.setBackgroundColor(resources.getColor(R.color.theme2_background))
             textView.setTextColor(resources.getColor(R.color.theme2_textColor))
+            startbutton.setBackgroundColor(resources.getColor(R.color.theme2_textColor))
+            startbutton.setTextColor(resources.getColor(R.color.theme2_background))
+            stopbutton.setBackgroundColor(resources.getColor(R.color.theme2_textColor))
+            stopbutton.setTextColor(resources.getColor(R.color.theme2_background))
         }
         if (color == "3") {
             container.setBackgroundColor(resources.getColor(R.color.theme3_background))
             textView.setTextColor(resources.getColor(R.color.theme3_textColor))
+            startbutton.setBackgroundColor(resources.getColor(R.color.theme3_textColor))
+            startbutton.setTextColor(resources.getColor(R.color.theme3_background))
+            stopbutton.setBackgroundColor(resources.getColor(R.color.theme3_textColor))
+            stopbutton.setTextColor(resources.getColor(R.color.theme3_background))
         }
         if (color == "4") {
             container.setBackgroundColor(resources.getColor(R.color.theme4_background))
             textView.setTextColor(resources.getColor(R.color.theme4_textColor))
+            startbutton.setBackgroundColor(resources.getColor(R.color.theme4_textColor))
+            startbutton.setTextColor(resources.getColor(R.color.theme4_background))
+            stopbutton.setBackgroundColor(resources.getColor(R.color.theme4_textColor))
+            stopbutton.setTextColor(resources.getColor(R.color.theme4_background))
         }
 
         if (size != null) {
@@ -177,18 +194,5 @@ class MainActivity : AppCompatActivity() {
         if (align == "3") {
             textView.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_END;
         }
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
 }

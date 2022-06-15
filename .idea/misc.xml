@@ -3,6 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/drawable/coding.xml" value="0.1" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/layout/activity_boock_check_item.xml" value="0.2" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/layout/activity_book_check.xml" value="0.176" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/layout/activity_library.xml" value="0.1" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/layout/activity_random.xml" value="0.2" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/layout/boock_check_item.xml" value="0.1" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/layout/book_item.xml" value="0.136" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/layout/fragment_information.xml" value="0.2" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/layout/splash_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/layout/test.xml" value="0.176" />
+        <entry key="..\:/Progect/Kursach-main/app/src/main/res/menu/main.xml" value="0.264" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/drawable/coding.xml" value="0.2985" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/activity_about_program.xml" value="0.33" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/activity_book_check.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/activity_book_list.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/activity_library.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/activity_random.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/boock_check_item.xml" value="0.33" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/book_item.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/fragment_developers.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/fragment_information.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/fragment_list_of_book.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/fragment_random_book.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/settings_activity.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/layout/splash_screen.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/Kursach-main/app/src/main/res/xml/root_preferences.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/testtest/app/src/main/res/layout/activity_about_program.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/user/AndroidStudioProjects/testtest/app/src/main/res/layout/activity_dashboard.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/testtest/app/src/main/res/layout/activity_home.xml" value="0.35260416666666666" />

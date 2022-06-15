@@ -7,6 +7,7 @@
         app:title="Настройки фона">
 
 
+
         <ListPreference
             android:defaultValue="1"
             android:entries="@array/entries"

@@ -14,5 +14,5 @@ data class Entity(
     @ColumnInfo(name = "book_name") var bname: String?,
     @ColumnInfo(name = "image_path") var ipath: String?,
     @ColumnInfo(name = "book_path") var bpath: String?,
-    //@ColumnInfo (name = "themeID") var themeID: Int?,
+    @ColumnInfo(name = "checkBoock") var checkBoock: Boolean,
     )
